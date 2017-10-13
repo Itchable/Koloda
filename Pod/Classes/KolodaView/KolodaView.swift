@@ -306,10 +306,12 @@ open class KolodaView: UIView, DraggableCardDelegate {
                 
                 _self.animating = false
                 
-                for index in 1..<_self.visibleCards.count {
-                    let card = _self.visibleCards[index]
-                    if _self.shouldTransparentizeNextCard {
-                        card.alpha = index == 0 ? _self.alphaValueOpaque : _self.alphaValueSemiTransparent
+                if _self.visibleCards.count > 1 {
+                    for index in 1..<_self.visibleCards.count {
+                        let card = _self.visibleCards[index]
+                        if _self.shouldTransparentizeNextCard {
+                            card.alpha = index == 0 ? _self.alphaValueOpaque : _self.alphaValueSemiTransparent
+                        }
                     }
                 }
             }
